@@ -25,9 +25,13 @@ public class CloudSpawner : MonoBehaviour
         controlX = 0;
         SetMinAndMax();
         CreateClouds();
+        player = GameObject.Find("Player");
     }
 
-   
+    private void Start()
+    {
+        PositionTHePlayer();
+    }
 
     private void SetMinAndMax()
     {
@@ -91,9 +95,33 @@ public class CloudSpawner : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+
+      void PositionTHePlayer()
     {
-        
+        GameObject[] darkClouds = GameObject.FindGameObjectsWithTag("Dadly");
+        GameObject[] CloudsInGame = GameObject.FindGameObjectsWithTag("Cloud");
+
+        for(int i = 0; i< darkClouds.Length; i++)
+        {
+            if(darkClouds[i].transform.position.y == 0f)
+            {
+                Vector3 t = darkClouds[i].transform.position;
+
+                darkClouds[i].transform.position = new Vector3(CloudsInGame[0].transform.position.x, CloudsInGame[0].transform.position.y, CloudsInGame[0].transform.position.z);
+                CloudsInGame[0].transform.position = t;
+            }
+        }
+
+        Vector3 temp = CloudsInGame[0].transform.position;
+
+        for(int i = 1; i < CloudsInGame.Length; i++)
+        {
+            if(temp.y < CloudsInGame[i].transform.position.y)
+            {
+                temp = CloudsInGame[i].transform.position;
+            }
+        }
+
+        player.transform.position = temp;
     }
 }
