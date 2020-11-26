@@ -19,13 +19,13 @@ public class CloudSpawner : MonoBehaviour
     [SerializeField]
     private GameObject[] collectbles;
 
-    private GameObject player;
+    private Transform player;
     void Awake()
     {
         controlX = 0;
         SetMinAndMax();
         CreateClouds();
-        player = GameObject.Find("Player");
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     private void Start()
@@ -43,12 +43,12 @@ public class CloudSpawner : MonoBehaviour
 
     void suffle(GameObject[] arrayToSuffle)
     {
-        for(int i = 0; i < arrayToSuffle.Length; i++)
+        for (int i = 0; i < arrayToSuffle.Length; i++)
         {
             GameObject temp = arrayToSuffle[i];
             int random = UnityEngine.Random.Range(0, arrayToSuffle.Length);
             arrayToSuffle[i] = arrayToSuffle[random];
-            arrayToSuffle[random] = temp; 
+            arrayToSuffle[random] = temp;
         }
     }
 
@@ -58,19 +58,19 @@ public class CloudSpawner : MonoBehaviour
 
         float positionY = 0;
 
-        for(int i = 0; i< clouds.Length; i++)
+        for (int i = 0; i < clouds.Length; i++)
         {
             Vector3 temp = clouds[i].transform.position;
 
-          
+
             temp.y = positionY;
 
-            if(controlX == 0)
+            if (controlX == 0)
             {
                 temp.x = UnityEngine.Random.Range(0f, maxX);
                 controlX = 1;
             }
-          else if (controlX == 1)
+            else if (controlX == 1)
             {
                 temp.x = UnityEngine.Random.Range(0f, minX);
                 controlX = 2;
@@ -89,21 +89,21 @@ public class CloudSpawner : MonoBehaviour
 
             lastCloudPositonY = positionY;
 
-            clouds[i].transform.position = temp; 
+            clouds[i].transform.position = temp;
 
             positionY -= distancebetweenCloud;
         }
     }
 
 
-      void PositionTHePlayer()
+    void PositionTHePlayer()
     {
         GameObject[] darkClouds = GameObject.FindGameObjectsWithTag("Dadly");
         GameObject[] CloudsInGame = GameObject.FindGameObjectsWithTag("Cloud");
 
-        for(int i = 0; i< darkClouds.Length; i++)
+        for (int i = 0; i < darkClouds.Length; i++)
         {
-            if(darkClouds[i].transform.position.y == 0f)
+            if (darkClouds[i].transform.position.y == 0f)
             {
                 Vector3 t = darkClouds[i].transform.position;
 
@@ -114,14 +114,68 @@ public class CloudSpawner : MonoBehaviour
 
         Vector3 temp = CloudsInGame[0].transform.position;
 
-        for(int i = 1; i < CloudsInGame.Length; i++)
+        for (int i = 1; i < CloudsInGame.Length; i++)
         {
-            if(temp.y < CloudsInGame[i].transform.position.y)
+            if (temp.y < CloudsInGame[i].transform.position.y)
             {
                 temp = CloudsInGame[i].transform.position;
             }
         }
 
-        player.transform.position = temp;
+
+        player.position = new Vector3(temp.x, 1, 0);
+        Debug.Log(temp);
+    }
+
+    private void OnTriggerEnter2D(Collider2D target)
+    {
+        if (target.gameObject.CompareTag("Cloud") || target.gameObject.CompareTag("Dadly"))
+        {
+            if(target.transform.position.y == lastCloudPositonY)
+            {
+
+                suffle(clouds);
+                suffle(collectbles);
+
+                Vector3 temp = target.transform.position;
+
+                for (int i = 0; i < clouds.Length; i++)
+                {
+                    if (!clouds[i].activeInHierarchy)
+                    {
+                      
+                        if (controlX == 0)
+                        {
+                            temp.x = UnityEngine.Random.Range(0f, maxX);
+                            controlX = 1;
+                        }
+                        else if (controlX == 1)
+                        {
+                            temp.x = UnityEngine.Random.Range(0f, minX);
+                            controlX = 2;
+                        }
+                        else if (controlX == 2)
+                        {
+                            temp.x = UnityEngine.Random.Range(1f, maxX);
+                            controlX = 3;
+                        }
+                        else if (controlX == 3)
+                        {
+                            temp.x = UnityEngine.Random.Range(-1f, minX);
+                            controlX = 0;
+                        }
+
+                        temp.y -= distancebetweenCloud;
+
+                        lastCloudPositonY = temp.y;
+
+                        clouds[i].transform.position = temp;
+                        clouds[i].SetActive(true);
+                    }
+                }
+            }
+        }
+
+
     }
 }
