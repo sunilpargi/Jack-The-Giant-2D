@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 140579993}
   - component: {fileID: 2092312322}
   - component: {fileID: 2092312323}
+  - component: {fileID: 7393524079632560744}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -166,8 +167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174bff7895608814186daf9f34ca40e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxVelocity: 5
-  speed: 2
+  maxVelocity: 4
+  speed: 3
 --- !u!114 &2092312322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,5 +193,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 695b7baecf7824340a4b1f80ce8e400b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinClip: {fileID: 0}
-  lifeClip: {fileID: 0}
+  coinClip: {fileID: 8300000, guid: 9f6fcb47cb346a3489beb232a23ddd8a, type: 3}
+  lifeClip: {fileID: 8300000, guid: 54fd001f3677d5b44ba11dc679a23d28, type: 3}
+--- !u!114 &7393524079632560744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7393524079764612862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f4bc2ff6faa024eb75a42b7213113b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 8
+  maxVelocity: 4
+  anim: {fileID: 7393524079764612863}

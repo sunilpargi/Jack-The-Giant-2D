@@ -39,8 +39,8 @@ public class Playerscore : MonoBehaviour
 			if (transform.position.y < previousPosition.y)
 			{
 				scoreCount++;
-				//GameplayController.instance.SetScore(scoreCount);
-			}
+                GameplayController.instance.SetScore(scoreCount);
+            }
 
 			previousPosition = transform.position;
 		}
@@ -53,10 +53,10 @@ public class Playerscore : MonoBehaviour
 			coinCount++;
 			scoreCount += 200;
 
-			//GameplayController.instance.SetScore(scoreCount);
-			//GameplayController.instance.SetCoinScore(coinCount);
+            GameplayController.instance.SetScore(scoreCount);
+            GameplayController.instance.SetCoinScore(coinCount);
 
-			AudioSource.PlayClipAtPoint(coinClip, target.transform.position);
+            AudioSource.PlayClipAtPoint(coinClip, target.transform.position);
 			target.gameObject.SetActive(false);
 		}
 
@@ -65,29 +65,33 @@ public class Playerscore : MonoBehaviour
 			lifeCount++;
 			scoreCount += 300;
 
-			//GameplayController.instance.SetLifeScore(lifeCount);
-			//GameplayController.instance.SetScore(scoreCount);
+            GameplayController.instance.SetLifeScore(lifeCount);
+            GameplayController.instance.SetScore(scoreCount);
 
-			AudioSource.PlayClipAtPoint(lifeClip, target.transform.position);
+            AudioSource.PlayClipAtPoint(lifeClip, target.transform.position);
 			target.gameObject.SetActive(false);
 		}
 
-		if (target.tag == "Bounds")
+		if (target.tag == "Bounds" || target.tag == "Dadly")
 		{
 			cameraScript.moveCamera = false;
 			countScore = false;
 			transform.position = new Vector3(500, 500, 0);
 			lifeCount--;
-			//GameManager.instance.CheckGameStatus(scoreCount, coinCount, lifeCount);
+
+			
+			GameManager.instance.CheckGameStatus(scoreCount, coinCount, lifeCount);
 		}
 
-		if (target.tag == "Dadly")
-		{
-			cameraScript.moveCamera = false;
-			countScore = false;
-			transform.position = new Vector3(500, 500, 0);
-			lifeCount--;
+		//if (target.tag == "Dadly")
+		//{
+		//	cameraScript.moveCamera = false;
+		//	countScore = false;
+		//	transform.position = new Vector3(500, 500, 0);
+		//	lifeCount--;
+
+			
 			//GameManager.instance.CheckGameStatus(scoreCount, coinCount, lifeCount);
-		}
+		//}
 	}
 }

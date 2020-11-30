@@ -10,8 +10,27 @@ public class CameraScript : MonoBehaviour
 
     [HideInInspector]
     public bool moveCamera;
-    void Start()
+
+	private float easySpeed = 3.2f;
+	private float mediumSpeed = 3.7f;
+	private float hardSpeed = 4.2f;
+	void Start()
     {
+
+		if (GamePreferences.GetEasyDifficultyState() == 0)
+		{
+			maxSpeed = easySpeed;
+		}
+
+		if (GamePreferences.GetMediumDifficultyState() == 0)
+		{
+			maxSpeed = mediumSpeed;
+		}
+
+		if (GamePreferences.GetHardDifficultyState() == 0)
+		{
+			maxSpeed = hardSpeed;
+		}
 		moveCamera = true;
 	}
 

@@ -8,6 +8,8 @@ TagManager:
   - Dadly
   - BG
   - Bounds
+  - Coin
+  - Life
   layers:
   - Default
   - TransparentFX

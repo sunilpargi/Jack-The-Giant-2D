@@ -1,23 +1,45 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class HighscoreController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	[SerializeField]
+	private Text scoreText, coinText;
 
-    public void GoBack()
+	void Start()
+	{
+		SetScoreForDifficulty();
+	}
+
+	public void SetScore(int score, int coin)
+	{
+		scoreText.text = "" + score;
+		coinText.text = "" + coin;
+	}
+
+	void SetScoreForDifficulty()
+	{
+		if (GamePreferences.GetEasyDifficultyState() == 0)
+		{
+			SetScore(GamePreferences.GetEasyDifficultyHighscore(), GamePreferences.GetEasyDifficultyCoinScore());
+		}
+
+		if (GamePreferences.GetMediumDifficultyState() == 0)
+		{
+			SetScore(GamePreferences.GetMediumDifficultyHighscore(), GamePreferences.GetMediumDifficultyCoinScore());
+		}
+
+		if (GamePreferences.GetHardDifficultyState() == 0)
+		{
+			SetScore(GamePreferences.GetHardDifficultyHighscore(), GamePreferences.GetHardDifficultyCoinScore());
+		}
+	}
+
+	public void GoBack()
     {
         SceneManager.LoadScene("MainMenu");
     }

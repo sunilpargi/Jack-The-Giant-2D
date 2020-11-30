@@ -613,6 +613,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e79a32ef966961d42b722827bb721abe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  easySign: {fileID: 915780819}
+  mediumSign: {fileID: 1407469037}
+  hardSign: {fileID: 715730084}
 --- !u!4 &652409383
 Transform:
   m_ObjectHideFlags: 0
@@ -857,7 +860,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 939027156}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 652409382}
+        m_TargetAssemblyTypeName: OptionCOntroller, Assembly-CSharp
+        m_MethodName: EasyDifficulty
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &939027156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -976,7 +991,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1094214984}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 652409382}
+        m_TargetAssemblyTypeName: OptionCOntroller, Assembly-CSharp
+        m_MethodName: HardDifficulty
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1094214984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1170,7 +1197,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1900644626}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 652409382}
+        m_TargetAssemblyTypeName: OptionCOntroller, Assembly-CSharp
+        m_MethodName: MediumDifficulty
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1900644626
 MonoBehaviour:
   m_ObjectHideFlags: 0
