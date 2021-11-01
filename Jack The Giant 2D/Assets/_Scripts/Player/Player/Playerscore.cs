@@ -5,7 +5,7 @@ using UnityEngine;
 public class Playerscore : MonoBehaviour
 {
 	[SerializeField]
-	private AudioClip coinClip, lifeClip;
+	private AudioClip coinClip, lifeClip, gameoverClip, dieClip;
 
 	private CameraScript cameraScript;
 
@@ -56,7 +56,7 @@ public class Playerscore : MonoBehaviour
             GameplayController.instance.SetScore(scoreCount);
             GameplayController.instance.SetCoinScore(coinCount);
 
-            AudioSource.PlayClipAtPoint(coinClip, target.transform.position);
+            AudioSource.PlayClipAtPoint(coinClip, Camera.main.transform.position);
 			target.gameObject.SetActive(false);
 		}
 
@@ -68,7 +68,7 @@ public class Playerscore : MonoBehaviour
             GameplayController.instance.SetLifeScore(lifeCount);
             GameplayController.instance.SetScore(scoreCount);
 
-            AudioSource.PlayClipAtPoint(lifeClip, target.transform.position);
+            AudioSource.PlayClipAtPoint(lifeClip, Camera.main.transform.position);
 			target.gameObject.SetActive(false);
 		}
 
@@ -78,8 +78,8 @@ public class Playerscore : MonoBehaviour
 			countScore = false;
 			transform.position = new Vector3(500, 500, 0);
 			lifeCount--;
+			AudioSource.PlayClipAtPoint(dieClip, Camera.main.transform.position);
 
-			
 			GameManager.instance.CheckGameStatus(scoreCount, coinCount, lifeCount);
 		}
 

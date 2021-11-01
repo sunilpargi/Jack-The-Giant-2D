@@ -11,7 +11,7 @@ public class MainMenuController : MonoBehaviour
 
 	[SerializeField]
 	private Sprite[] musicIcons;
-
+	public AudioClip uITouchClick;
 	void Start()
 	{
 		CheckIfMusicIsOnOrOff();
@@ -31,9 +31,11 @@ public class MainMenuController : MonoBehaviour
 		{
 			musicButton.image.sprite = musicIcons[1];
 		}
+		
 	}
 	public void PlayGame()
 	{
+		AudioSource.PlayClipAtPoint(uITouchClick, Camera.main.transform.position);
 		GameManager.instance.gameStartedFromMainMenu = true;
 		//SceneManager.LoadScene("Gameplay");
 		SceneFader.instance.LoadLevel("Gameplay");
@@ -41,16 +43,19 @@ public class MainMenuController : MonoBehaviour
 
 	public void HighScoreMenu()
 	{
+		AudioSource.PlayClipAtPoint(uITouchClick, Camera.main.transform.position);
 		SceneManager.LoadScene("Highscore");
 	}
 
 	public void OptionsMenu()
 	{
+		AudioSource.PlayClipAtPoint(uITouchClick, Camera.main.transform.position);
 		SceneManager.LoadScene("OptionMenu");
 	}
 
 	public void QuitGame()
 	{
+		AudioSource.PlayClipAtPoint(uITouchClick, Camera.main.transform.position);
 		Application.Quit();
 
 
@@ -66,6 +71,7 @@ public class MainMenuController : MonoBehaviour
 				AudioController.instance.PlayMusic(false);
 			}
 			musicButton.image.sprite = musicIcons[1];
+			AudioSource.PlayClipAtPoint(uITouchClick, Camera.main.transform.position);
 		}
 		else
 		{
@@ -75,6 +81,7 @@ public class MainMenuController : MonoBehaviour
 				AudioController.instance.PlayMusic(true);
 			}
 			musicButton.image.sprite = musicIcons[0];
+			AudioSource.PlayClipAtPoint(uITouchClick, Camera.main.transform.position);
 		}
 	}
 }

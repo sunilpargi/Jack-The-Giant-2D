@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5284760163481726083}
   - component: {fileID: 5284760163481726084}
   - component: {fileID: 5284760163481726085}
+  - component: {fileID: 9016829713810983462}
   m_Layer: 0
   m_Name: Cloud 1
   m_TagString: Cloud
@@ -90,7 +91,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5284760163481726086}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -111,8 +112,8 @@ PolygonCollider2D:
     - - {x: 0.7844396, y: -0.02891472}
       - {x: 0.8522563, y: 0.02825089}
       - {x: 0.8522563, y: 0.0913195}
-      - {x: 0.7977119, y: 0.10543588}
-      - {x: 0.6388041, y: 0.11697331}
+      - {x: 0.84879833, y: 0.11008027}
+      - {x: 0.6434485, y: 0.14483824}
       - {x: 0.4915595, y: 0.15035066}
       - {x: 0.3241197, y: 0.14429614}
       - {x: 0.2956699, y: 0.14435826}
@@ -133,3 +134,29 @@ PolygonCollider2D:
       - {x: 0.36644045, y: -0.13272567}
       - {x: 0.4899702, y: -0.088819176}
       - {x: 0.672417, y: -0.06548606}
+--- !u!61 &9016829713810983462
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5284760163481726086}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.004580021, y: -0.016286165}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.8030581, y: 0.41}
+    newSize: {x: 1.8030581, y: 0.41}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.7023001, y: 0.37742764}
+  m_EdgeRadius: 0

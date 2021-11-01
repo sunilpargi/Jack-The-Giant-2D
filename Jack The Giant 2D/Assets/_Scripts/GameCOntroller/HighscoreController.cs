@@ -9,7 +9,7 @@ public class HighscoreController : MonoBehaviour
 
 	[SerializeField]
 	private Text scoreText, coinText;
-
+	public AudioClip uITouchClick;
 	void Start()
 	{
 		SetScoreForDifficulty();
@@ -40,7 +40,8 @@ public class HighscoreController : MonoBehaviour
 	}
 
 	public void GoBack()
-    {
-        SceneManager.LoadScene("MainMenu");
+	{
+		AudioSource.PlayClipAtPoint(uITouchClick, Camera.main.transform.position);
+		SceneManager.LoadScene("MainMenu");
     }
 }

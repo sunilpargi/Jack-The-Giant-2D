@@ -138,7 +138,7 @@ public static class GamePreferences
 		PlayerPrefs.SetInt(GamePreferences.HardDifficultyCoinScore, score);
 	}
 
-} // GamePreferences
+} // GamePreferences 
 
 
 

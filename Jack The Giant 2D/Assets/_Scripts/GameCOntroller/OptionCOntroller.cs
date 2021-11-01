@@ -7,7 +7,7 @@ public class OptionCOntroller : MonoBehaviour
 {
     [SerializeField]
     private GameObject easySign, mediumSign, hardSign;
-
+	public AudioClip uITouchClick;
 	void Start()
 	{
 		SetInitialDifficultyInOptionsMenu();
@@ -57,7 +57,7 @@ public class OptionCOntroller : MonoBehaviour
 
 	public void EasyDifficulty()
 	{
-
+		AudioSource.PlayClipAtPoint(uITouchClick, Camera.main.transform.position);
 		GamePreferences.SetEasyDifficultyState(0);
 		GamePreferences.SetMediumDifficultyState(1);
 		GamePreferences.SetHardDifficultyState(1);
@@ -69,7 +69,7 @@ public class OptionCOntroller : MonoBehaviour
 
 	public void MediumDifficulty()
 	{
-
+		AudioSource.PlayClipAtPoint(uITouchClick, Camera.main.transform.position);
 		GamePreferences.SetEasyDifficultyState(1);
 		GamePreferences.SetMediumDifficultyState(0);
 		GamePreferences.SetHardDifficultyState(1);
@@ -81,7 +81,7 @@ public class OptionCOntroller : MonoBehaviour
 
 	public void HardDifficulty()
 	{
-
+		AudioSource.PlayClipAtPoint(uITouchClick, Camera.main.transform.position);
 		GamePreferences.SetEasyDifficultyState(1);
 		GamePreferences.SetMediumDifficultyState(1);
 		GamePreferences.SetHardDifficultyState(0);
@@ -89,12 +89,14 @@ public class OptionCOntroller : MonoBehaviour
 		easySign.SetActive(false);
 		mediumSign.SetActive(false);
 		hardSign.SetActive(true);
+
 	}
 
 
 
     public void GoBack()
     {
-        SceneManager.LoadScene("MainMenu");
+		AudioSource.PlayClipAtPoint(uITouchClick, Camera.main.transform.position);
+		SceneManager.LoadScene("MainMenu");
     }
 }

@@ -325,7 +325,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &319108780
 RectTransform:
   m_ObjectHideFlags: 0
@@ -497,6 +497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 434680267}
   coinText: {fileID: 2095379507}
+  uITouchClick: {fileID: 8300000, guid: ba3f2b65bafc0b548931fa494f86296e, type: 3}
 --- !u!4 &634445243
 Transform:
   m_ObjectHideFlags: 0

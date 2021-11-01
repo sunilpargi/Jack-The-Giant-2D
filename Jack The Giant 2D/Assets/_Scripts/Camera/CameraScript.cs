@@ -5,15 +5,15 @@ using UnityEngine;
 public class CameraScript : MonoBehaviour
 {
     private float speed = 1.0f;
-    private float acceleration = 0.2f;
+    private float acceleration = 0.05f;
     private float maxSpeed = 3.2f;
 
     [HideInInspector]
     public bool moveCamera;
 
-	private float easySpeed = 3.2f;
-	private float mediumSpeed = 3.7f;
-	private float hardSpeed = 4.2f;
+	private float easySpeed = 3f;
+	private float mediumSpeed = 3.2f;
+	private float hardSpeed = 3.5f;
 	void Start()
     {
 

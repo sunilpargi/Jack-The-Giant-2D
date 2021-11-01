@@ -22,7 +22,7 @@ public class CloudSpawner : MonoBehaviour
     private Transform player;
     void Awake()
     {
-        controlX = 0;
+        controlX = 0; 
         SetMinAndMax();
         CreateClouds();
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -68,7 +68,7 @@ public class CloudSpawner : MonoBehaviour
             Vector3 temp = clouds[i].transform.position;
 
 
-            temp.y = positionY;
+            temp.y = positionY; 
 
             if (controlX == 0)
             {
@@ -129,7 +129,7 @@ public class CloudSpawner : MonoBehaviour
 
 
         player.position = new Vector3(temp.x, 1, 0);
-        Debug.Log(temp);
+       
     }
 
     private void OnTriggerEnter2D(Collider2D target)

@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 
 	[HideInInspector]
 	public int score, coinScore, lifeScore;
-
+	public AudioClip gameoverClip;
 	void Awake()
 	{
 		MakeSingleton();
@@ -99,8 +99,9 @@ public class GameManager : MonoBehaviour
 	{
 		if (lifeScore < 0)
 		{
+			AudioSource.PlayClipAtPoint(gameoverClip, Camera.main.transform.position);
 
-            if (GamePreferences.GetEasyDifficultyState() == 0)
+			if (GamePreferences.GetEasyDifficultyState() == 0)
             {
 
                 int highscore = GamePreferences.GetEasyDifficultyHighscore();
@@ -155,9 +156,7 @@ public class GameManager : MonoBehaviour
 			this.coinScore = coinScore;
 			this.lifeScore = lifeScore;
 
-			GameplayController.instance.SetScore(score);
-			GameplayController.instance.SetLifeScore(lifeScore);
-			GameplayController.instance.SetCoinScore(coinScore);
+		
 
 			gameStartedFromMainMenu = false;
 			gameRestartedAfterPlayerDied = true;

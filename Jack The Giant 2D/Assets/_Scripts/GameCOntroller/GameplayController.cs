@@ -17,6 +17,8 @@ public class GameplayController : MonoBehaviour
 
     [SerializeField]
     private GameObject readyButton;
+
+	public AudioClip gameStartClip, uITouchClick;
 	void Awake()
 	{
 		MakeInstance();
@@ -80,18 +82,21 @@ public class GameplayController : MonoBehaviour
 
 	public void PauseGame()
 	{
+		AudioSource.PlayClipAtPoint(uITouchClick, Camera.main.transform.position);
 		Time.timeScale = 0f;
 		pausePanel.SetActive(true);
 	}
 
 	public void ResumeGame()
 	{
+		AudioSource.PlayClipAtPoint(uITouchClick, Camera.main.transform.position);
 		Time.timeScale = 1f;
 		pausePanel.SetActive(false);
 	}
 
 	public void QuitGame()
 	{
+		AudioSource.PlayClipAtPoint(uITouchClick, Camera.main.transform.position);
 		Time.timeScale = 1f;
 		//SceneManager.LoadScene ("MainMenu");
 		SceneFader.instance.LoadLevel ("MainMenu");
@@ -100,6 +105,7 @@ public class GameplayController : MonoBehaviour
 	public void StartTheGame()
 	{
 		Time.timeScale = 1f;
+		AudioSource.PlayClipAtPoint(gameStartClip, Camera.main.transform.position);
 		readyButton.SetActive(false);
 	}
 

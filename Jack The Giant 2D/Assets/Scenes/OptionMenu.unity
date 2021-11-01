@@ -292,7 +292,7 @@ RectTransform:
   m_GameObject: {fileID: 164134549}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4875, y: 1.1125, z: 1}
+  m_LocalScale: {x: 0.39000002, y: 1.4366894, z: 1}
   m_Children: []
   m_Father: {fileID: 211723922}
   m_RootOrder: 4
@@ -616,6 +616,7 @@ MonoBehaviour:
   easySign: {fileID: 915780819}
   mediumSign: {fileID: 1407469037}
   hardSign: {fileID: 715730084}
+  uITouchClick: {fileID: 8300000, guid: ba3f2b65bafc0b548931fa494f86296e, type: 3}
 --- !u!4 &652409383
 Transform:
   m_ObjectHideFlags: 0
